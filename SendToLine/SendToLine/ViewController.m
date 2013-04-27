@@ -39,11 +39,12 @@
 //LINEで送る
 - (void)sendToLineButtonWasTapped:(id)sender {
   NSString *plainString = _textField.text;
-  NSString *contentKey = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
-                                                                                      (CFStringRef)plainString,
-                                                                                      NULL,
-                                                                                      (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                      kCFStringEncodingUTF8 );
+  NSString *contentKey = (__bridge NSString *)
+    CFURLCreateStringByAddingPercentEscapes(NULL,
+                                            (CFStringRef)plainString,
+                                            NULL,
+                                            (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                            kCFStringEncodingUTF8 );
   
   NSString *contentType = @"text";
   NSString *urlString = [NSString
